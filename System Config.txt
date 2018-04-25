@@ -1,0 +1,864 @@
+Audio Video
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+		audio{
+			margin : 5px;
+		}
+		video{
+			margin: 10px;
+		}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+
+		<aside class="aside">
+			<audio controls>
+				<source src="horse.ogg" type="audio/ogg">
+				<source src="horse.mp3" type="audio/mpegs">
+			</audio>
+		</aside>
+		<article class="article">
+			<video width="400" controls>
+			  <source src="mov_bbb.mp4" type="video/mp4">
+			  <source src="mov_bbb.ogg" type="video/ogg">
+			  Your browser does not support HTML5 video.
+			</video>
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+Circle to Rectangle
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+
+		.a {
+		    width: 100px;
+		    height: 100px;
+		    background: red;
+		    border-radius: 50%;
+		    margin : 10px;
+		    -webkit-transition: width 2s, border-radius 4s; /* For Safari 3.1 to 6.0 */
+		    transition: width 2s, border-radius 2s;
+		}
+
+		.a:hover {
+		    width: 300px;
+		    border-radius: 0%;
+		}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+
+		<aside class="aside">ASIDE</aside>
+		<article class="article">
+			<div class="a"></div>
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+Grid.html
+<!DOCTYPE html>
+<html>
+<!--https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout-->
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="grid.css">
+	</style>
+</head>
+<body>
+<div class="wrapper">
+        <header class="main-head">The header</header>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="">Nav 1</a></li>
+                <li><a href="">Nav 2</a></li>
+                <li><a href="">Nav 3</a></li>
+            </ul>
+        </nav>
+        <article class="content">
+            <h1>Main article area</h1>
+            <p>In this layout, we display the areas in source order for any screen less that 500 pixels wide. We go to a two column layout, and then to a three column layout by redefining the grid, and the placement of items on the grid.</p>
+        </article> 
+        <aside class="side">Sidebar</aside>
+        <div class="ad">Advertising</div>
+        <footer class="main-footer">The footer</footer>
+</div>
+</body>
+</html>
+
+
+
+grid.css
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  font: 1.2em Helvetica, arial, sans-serif;
+}
+
+.wrapper > * {
+  border: 2px solid #f08c00;
+  background-color: #ffec99;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.main-head {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+}
+.main-nav {
+  grid-area: nav;
+}
+.side {
+  grid-area: sidebar;
+}
+.ad {
+  grid-area: ad;
+}
+.main-footer {
+  grid-area: footer;
+}
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "header"
+    "nav"
+    "content"
+    "sidebar"
+    "ad"
+    "footer";
+}
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas:
+      "header  header"
+      "nav     nav"
+      "sidebar content"
+      "ad      footer";
+  }
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    content sidebar"
+      "nav    content ad"
+      "footer footer  footer";
+  }
+  nav ul {
+    flex-direction: column;
+  }
+}
+
+
+
+
+Image zoom  center
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+		img{
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin:10px;
+			-webkit-transition:width,height, -webkit-transform 2s;
+			transition: width,height, -webkit-transform 2s;
+		}
+		img:hover{
+			width:200px;
+			height: 200px;
+			padding:200px;
+			-webkit-transform :scale(1.5); 
+		}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div >
+
+		<aside >ASIDE</aside>
+		<article class="article">
+			<img src="images.jpeg">
+			<img src="images.jpeg">
+			<img src="images.jpeg">
+			<img src="images.jpeg">
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+Rotate and Scale
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+		img{
+			width:100px;
+			height: 100px;
+			margin:10px;
+		}
+		img.a{
+		    background-color: yellow;
+		    -ms-transform: rotate(20deg); /* IE 9 */
+		    -webkit-transform: rotate(20deg); /* Safari 3-8 */
+		    transform: rotate(20deg);
+		}
+
+		img.b {
+		    background-color:yellow;
+		    -ms-transform: skewY(20deg); /* IE 9 */
+		    -webkit-transform: skewY(20deg); /* Safari 3-8 */
+		    transform: skewY(20deg);
+		}
+
+		img.c{
+		    background-color: yellow;
+		    -ms-transform: scaleY(1.5); /* IE 9 */
+		    -webkit-transform: scaleY(1.5); /* Safari 3-8 */
+		    transform: scaleY(1.5);
+		}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+		<aside class="aside">ASIDE</aside>
+		<article class="article">
+			<br>
+			<br>
+			<img src="images.jpeg">
+			<img class="a" src="images.jpeg">
+			<img class="b" src="images.jpeg">
+			<img class="c" src="images.jpeg">
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+
+Psedo Selector
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+	/**************pseudo class***************/
+		/* unvisited link */
+		a:link {
+		    color: red;
+		}
+
+		/* visited link */
+		a:visited {
+		    color: green;
+		}
+
+		/* mouse over link */
+		a:hover {
+		    color: hotpink;
+		}
+
+		/* selected link */
+		a:active {
+		    color: blue;
+		}
+		/*Selects every <p> elements that is the first child of its parent*/
+		p:first-child {
+		    color: blue;
+		} 
+		/*Selects every <p> element that is the second child of its parent, counting from the last child*/
+		p:nth-last-child(2){
+			color:red;
+		}
+		/*Selects every <p> element that is the last <p> element of its parent*/
+		p:last-of-type{
+			color: green;
+		}
+	/************************pseudo elements***************************/
+		p::first-letter {
+		    font-size: xx-large;
+		}
+		p:first-child::before {
+		    content: "Before ";
+		}
+
+		p:last-child::after {
+		    content: " After";
+		}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+
+		<aside class="aside"><a href="#aside">ASIDE</a></aside>
+		<article class="article">
+			<p>This is paragraph 1</p>
+			<p>This is paragraph 2</p>
+			<p>This is paragraph 3</p>
+			<p>This is paragraph 4</p>
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+
+Table
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+		table {
+		    border-collapse: collapse;
+		    border-spacing: 0;
+		    width: 100%;
+		    border: 1px solid #ddd;
+		}
+
+		th, td {
+		    text-align: left;
+		    padding: 8px;
+		}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+
+		<aside class="aside">ASIDE</aside>
+		<article class="article">
+		<div style="overflow-x:auto;">
+			  <table>
+			    <tr>
+			      <th>First Name</th>
+			      <th>Last Name</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			      <th>Points</th>
+			    </tr>
+			    <tr>
+			      <td>Jill</td>
+			      <td>Smith</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			      <td>50</td>
+			    </tr>
+			    <tr>
+			      <td>Eve</td>
+			      <td>Jackson</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			      <td>94</td>
+			    </tr>
+			    <tr>
+			      <td>Adam</td>
+			      <td>Johnson</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			      <td>67</td>
+			    </tr>
+			  </table>
+			</div>
+
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+
+Round Corners
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+		.a {
+			width: 100px;
+			height: 100px;
+			border-radius: 15px 50px 30px;
+			background-color: red;
+			border-color: 1px solid black;
+		}
+		/*
+		Four values - border-radius: 15px 50px 30px 5px; (first value applies to top-left corner, second value applies to top-right corner, third value applies to bottom-right corner, and fourth value applies to bottom-left corner):
+		Three values - border-radius: 15px 50px 30px; (first value applies to top-left corner, second value applies to top-right and bottom-left corners, and third value applies to bottom-right corner):
+		Two values - border-radius: 15px 50px; (first value applies to top-left and bottom-right corners, and the second value applies to top-right and bottom-left corners):
+		*/
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+
+		<aside class="aside">ASIDE</aside>
+		<article class="article">
+			<div class="a"></div>
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+Responsive webpage
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+		
+	</style>
+	<script>
+		function myFunction() {
+		    var x = document.getElementById("myTopnav");
+		    if (x.className === "topnav") {
+		        x.className += " responsive";
+		    } else {
+		        x.className = "topnav";
+		    }
+		}
+	</script>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+		<nav class="topnav" id="myTopnav">
+			  <a href="#home" class="active">Home</a>
+			  <a href="#one">One</a>
+			  <a href="#two">Two</a>
+			  <a href="#three">Three</a>
+			  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+		</nav>
+		<aside class="aside">ASIDE</aside>
+		<article class="article">ARTICLE</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+Responsive webpage css
+.body{
+	margin: 0 auto;
+}
+.container{
+	width: 100%;
+	height: 500px;
+}
+.footer,.header{
+	background-color: #aaa;
+	color: white;
+	text-align: center;
+	padding: 5px 0;
+	width: 100%;
+	height: 20%;
+	clear: both;
+}
+/*For menu*/
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size:1em;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+/*for aside and article*/
+.aside{
+	width: 25%;
+	height: 500px;
+	float: left;
+	background-color: #ccc;
+}
+.article{
+	width: 75%;
+	height: 500px;
+	float: right;
+	background-color:#ddd;
+}
+
+/*media queries for aside and article*/
+@media only screen and (max-width: 760px)
+{
+
+	.aside{
+		clear:both;
+		width: 100%;
+		height:10%;
+	}
+	.article{
+		clear:both;
+		width: 100%	
+	}
+
+}
+/*For menu*/
+@media screen and (max-width: 760px) {
+
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+@media screen and (max-width: 760px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+Transition
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TITLE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="rwd_media.css">
+	<style type="text/css">
+	.a{
+		width:100px;
+		height: 100px;
+		background-color: red;
+		-webkit-transition: background-color 2s; /* For Safari 3.1 to 6.0 */
+    	transition: background-color 2s;
+	}
+	.a:hover{
+		background-color: yellow;
+	}
+	.b {
+	    width: 100px;
+	    height: 100px;
+	    background: red;
+	    -webkit-transition: width 3s; /* Safari */
+	    -webkit-transition-delay: 1s; /* Safari */
+	    transition: width 3s;
+	    transition-delay: 1s;
+	}
+	.b:hover {
+	    width: 300px;
+	}
+	</style>
+</head>
+<body class="body">
+	<header class="header"><h2>HEADER</h2></header>
+	<div class="container">
+
+		<aside class="aside">ASIDE</aside>
+		<article class="article">
+			<div class="a"></div>
+			<br>
+			<div class="b"></div>
+		</article>
+	</div>
+	
+	<footer class="footer"><h2>FOOTER</h2></footer>
+
+</body>
+</html>
+
+
+
+
+Ajax read from file
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax Example</title>
+</head>
+<body>
+<h1>Ajax using xmlHTTP request</h1>
+<p>Click on the below button to load data from document</p>
+<button type="submit" onclick="Ajax_Load()"></button>
+<div id="dala_load"></div>
+<script type="text/javascript">
+	function Ajax_Load() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function(){
+			if(this.readyState == 4 || this.status == 200)
+			{
+				document.getElementById("dala_load").innerHTML =
+				this.responseText;
+			}
+		};
+		// console.log("Hi");
+		xhttp.open("GET",'ajax_info.txt',true);
+		xhttp.send();
+	}
+	
+</script>
+</body>
+</html>
+
+
+
+Ajax Write to a file
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Data with Ajax and PHP</title>
+</head>
+<body>
+    <textarea id="data">Enter some content here you want to save as a file</textarea>
+    <button id="save" onclick="save();return false;">Save</button>
+    <div id="response"></div>
+<script>
+function save(){
+	var response=document.getElementById("response");
+	var data = 'data='+document.getElementById("data").value;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function(){
+	  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+	    response.innerHTML='<a href="files/'+xmlhttp.responseText+'.txt">'+xmlhttp.responseText+'.txt</a>';
+	  }
+	}
+	xmlhttp.open("POST","save.php",true);
+        //Must add this request header to XMLHttpRequest request for POST
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send(data);
+}
+</script>
+</body>
+</html>
+<?php
+//error_reporting(E_ALL);
+//var_dump($_SERVER);
+$post_data = $_POST['data'];
+if (!empty($post_data)) {
+    $dir = '/';
+    $file = uniqid().getmypid();
+    $filename = 'saved.txt';
+    $handle = fopen($filename, "w");
+    fwrite($handle, $post_data);
+    fclose($handle);
+    // echo $file;
+}
+?>
+
+
+
+Grid system w3school
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    background-color: #9933cc;
+    color: #ffffff;
+    padding: 15px;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: #33b5e5;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    background-color: #0099cc;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Chania</h1>
+</div>
+
+<div class="row">
+
+<div class="col-3 menu">
+  <ul>
+    <li>The Flight</li>
+    <li>The City</li>
+    <li>The Island</li>
+    <li>The Food</li>
+  </ul>
+</div>
+
+<div class="col-9">
+  <h1>The City</h1>
+  <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the old town and the modern city.</p>
+  <p>Resize the browser window to see how the content respond to the resizing.</p>
+</div>
+
+</div>
+
+</body>
+</html>
+
